@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1d6b5a">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>فلش‌کارت لغات انگلیسی</title>
+
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f5f1;--card:#fff;--tx:#1d1d1b;--mut:#6b6a64;--ac:#1d6b5a;--acx:#fff;--bd:#dcdad2;--bad:#b3402f;--sf:#ece9df}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171716;--card:#232321;--tx:#eeede8;--mut:#9a988f;--ac:#4fb59d;--acx:#10231e;--bd:#3a3a36;--bad:#e07a68;--sf:#2c2c29}}
+:root[data-theme="dark"]{--bg:#171716;--card:#232321;--tx:#eeede8;--mut:#9a988f;--ac:#4fb59d;--acx:#10231e;--bd:#3a3a36;--bad:#e07a68;--sf:#2c2c29}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,system-ui,sans-serif;line-height:1.7;font-size:16px;padding-bottom:170px}
+main{max-width:560px;margin:0 auto;padding:14px 14px 0}
+h1{font-size:1.1rem;margin:2px 0 12px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px}
+input,textarea{width:100%;min-height:50px;padding:10px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit;font-size:16px}
+textarea{min-height:90px;resize:vertical}
+.en{direction:ltr;text-align:left}
+label{display:block;font-size:.85rem;color:var(--mut);margin:10px 0 4px}
+.btn{min-height:52px;padding:10px 16px;border-radius:14px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.p{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.btn.d{color:var(--bad)}
+.btn:disabled{opacity:.5}
+.row{display:flex;gap:8px;margin-top:10px}
+.row>*{flex:1}
+.hint{font-size:.82rem;color:var(--mut);margin-top:8px}
+.fc{min-height:260px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:22px;cursor:pointer}
+.w{font-size:2.1rem;font-weight:800;direction:ltr}
+.pos{display:inline-block;font-size:.75rem;color:var(--mut);background:var(--sf);border-radius:8px;padding:0 8px;direction:ltr;margin-top:4px}
+.d{direction:ltr;text-align:left;font-size:1.1rem;width:100%}
+.x{direction:ltr;text-align:left;color:var(--mut);font-style:italic;margin-top:8px;width:100%}
+.mut{color:var(--mut);font-size:.85rem}
+.sg{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--bd);cursor:pointer}
+.sg:last-child{border:0}
+.sg input{width:26px;min-height:26px;margin-top:6px;accent-color:var(--ac)}
+.it{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid var(--bd)}
+.it:last-child{border:0}
+.it .t{flex:1;min-height:52px;cursor:pointer;padding:4px 0}
+.it b{direction:ltr;display:block}
+.it small{color:var(--mut);direction:ltr;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw}
+.ib{width:48px;height:48px;border:0;background:var(--sf);border-radius:12px;font-size:1.1rem;cursor:pointer;color:var(--tx)}
+#dock{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);padding:10px 12px calc(8px + env(safe-area-inset-bottom,0px));z-index:5}
+#act{max-width:560px;margin:0 auto 8px;display:flex;gap:8px}
+#act:empty{display:none}
+#act .btn{flex:1;min-height:56px;font-size:1.05rem}
+#nav{max-width:560px;margin:0 auto;display:flex;gap:6px}
+#nav button{flex:1;min-height:56px;border:0;background:none;color:var(--mut);font:inherit;font-size:.8rem;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#nav button span{font-size:1.3rem;line-height:1.2}
+#nav button.on{color:var(--ac);background:var(--sf);font-weight:600}
+.shade{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10;display:flex;align-items:flex-end}
+.sheet{background:var(--card);width:100%;max-width:560px;margin:0 auto;border-radius:20px 20px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:90vh;overflow:auto}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(150px + env(safe-area-inset-bottom,0px));background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:20px;z-index:20;font-size:.9rem}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.btn:active,.ib:active{transform:scale(.97)}}
+select{width:100%;min-height:50px;padding:0 10px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit;font-size:16px}
+.btn.d{width:auto;direction:rtl;font-size:inherit;color:var(--bad)}
+.df{direction:ltr;text-align:left;font-size:1.05rem}
+.fc.top{justify-content:flex-start;align-items:stretch;cursor:default}
+.fc.top .w{text-align:center}
+.pg{--c:#888;margin-top:14px;text-align:right;border:1px solid var(--bd);border-right:5px solid var(--c);border-radius:14px;padding:8px 12px;background:color-mix(in srgb,var(--c) 8%,var(--card))}
+.chip{--c:#888;padding:2px 12px;border-radius:14px;font-size:.85rem;color:var(--c);border:1px solid var(--c)}
+[data-p="noun"]{--c:#3b82c4}[data-p="verb"]{--c:#2f9e6e}[data-p="adjective"]{--c:#d98a1f}[data-p="adverb"]{--c:#8b5cc4}[data-p="phrasal verb"]{--c:#c4478b}[data-p="preposition"]{--c:#3a9aa8}[data-p="conjunction"]{--c:#7a8a3a}[data-p="pronoun"]{--c:#b0623a}[data-p="determiner"]{--c:#6b7a8f}[data-p="exclamation"]{--c:#d0443f}
+.ph{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.ph b{color:var(--c);font-size:1.05rem}
+.cnt{margin-inline-start:auto;font-size:.75rem;color:var(--mut)}
+.ps{font-size:.9rem;color:var(--mut);border-bottom:1px dashed var(--bd);padding-bottom:6px;margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.sn{display:flex;direction:ltr;gap:10px;padding:6px 0;align-items:flex-start}
+.sn input{width:26px;min-height:26px;flex:none;margin-top:3px;accent-color:var(--ac)}
+.nm{min-width:24px;height:24px;border-radius:50%;background:var(--sf);font-size:.8rem;display:flex;align-items:center;justify-content:center;flex:none;margin-top:3px}
+.sr{border:1px solid var(--bd);border-radius:14px;padding:10px;margin-top:10px}
+.day{display:flex;justify-content:space-between;align-items:center;min-height:68px;cursor:pointer}
+.day b{font-size:1.1rem}
+.sa{font-size:.9rem;margin-top:2px;text-align:right}
+.s1 b{color:#2f9e6e}.s2 b{color:#d0443f}
+.ipa{display:flex;justify-content:center;align-items:center;gap:8px;direction:ltr;color:var(--mut)}
+.hn{margin-top:10px;direction:ltr;letter-spacing:3px;font-family:monospace;white-space:pre;color:var(--mut)}
+.okc{color:#2f9e6e}.nc{color:var(--bad);text-decoration:underline}
+.warn{margin-top:8px;padding:8px 12px;border-radius:12px;background:color-mix(in srgb,#d98a1f 18%,var(--card));border:1px solid #d98a1f;font-size:.9rem}
+.lnk{background:none;border:0;color:var(--ac);font:inherit;text-decoration:underline;cursor:pointer;min-height:44px;padding:0 4px}
+#nav button{font-size:.75rem}
+.pr{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:2px}
+.dup{background:color-mix(in srgb,#d98a1f 15%,var(--card));border:1px solid #d98a1f;border-radius:12px;padding:10px;margin-top:10px;font-size:.9rem}
+.warn{background:color-mix(in srgb,#d98a1f 16%,var(--card));border:1px solid #d98a1f;border-radius:12px;padding:8px 12px;margin-top:10px;font-size:.9rem}
+.ipa{direction:ltr;color:var(--mut);font-size:1.1rem;min-height:1.2em}
+.ib.sp{width:40px;height:40px;font-size:1rem;vertical-align:middle}
+.ib.big{width:84px;height:84px;font-size:2rem;border-radius:50%}
+.rok{color:#2f9e6e}.rno{color:var(--bad)}
+.fc.top .ipa,.fc.top>.mut{text-align:center}
+.day{display:block;padding:0;cursor:default}
+.dh{display:flex;justify-content:space-between;align-items:center;min-height:68px;padding:14px;cursor:pointer}
+.dw{padding:0 14px 14px}
+.wi{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;min-height:52px;padding:8px 12px;margin-top:6px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit;cursor:pointer}
+.wi b{direction:ltr}
+</style>
+</head>
+<body>
+<main><div class="row" style="margin:0 0 8px;align-items:center"><h1 style="flex:1;margin:0">📚 فلش‌کارت لغات انگلیسی</h1><button class="ib" id="mn" style="flex:none" aria-label="منو">⋮</button></div><div id="view"></div></main>
+<div id="dock"><div id="act"></div><div id="nav">
+<button data-t="study"><span>🎴</span>مرور</button>
+<button data-t="add"><span>➕</span>افزودن</button>
+<button data-t="spell"><span>✍️</span>املا</button>
+<button data-t="list"><span>🗂️</span>کارت‌ها</button>
+</div></div>
+<div id="toast" hidden></div>
+<div id="sh" class="shade" hidden></div>
+<script>
+const SRC='<!DOCTYPE html>'+document.documentElement.outerHTML;
+const KEY='fc_cards_v1';
+const POS=[['noun','اسم'],['verb','فعل'],['adjective','صفت'],['adverb','قید'],['phrasal verb','فعل عبارتی'],['phrase','عبارت'],['idiom','اصطلاح'],['preposition','حرف اضافه'],['conjunction','حرف ربط'],['pronoun','ضمیر'],['determiner','حرف تعریف'],['exclamation','ندا'],['other','سایر']];
+let cards=[],tb='study',day=null,idx=0,flip=false,sugg=[],sw='',ai=null,dl=null,wv='',dr=null,cnt=false,sp=null,sipa='',startAt=0,openD=new Set();
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cards))}catch(e){}};
+const uid=()=>'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const canSpeak='speechSynthesis' in window;
+function speak(w){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.9;speechSynthesis.speak(u)}catch(e){}}
+const nw=t=>String(t).trim().toLowerCase().replace(/\s+/g,' ');
+const find=(w,ex)=>cards.find(x=>x.id!==ex&&nw(x.w)===nw(w));
+const pj=t=>{t=String(t||'');const i=t.search(/[\[{]/),k=Math.max(t.lastIndexOf('}'),t.lastIndexOf(']'));return JSON.parse(t.slice(i,k+1))};
+const qtext=c=>(c.w+' '+(c.ipa||'')+' '+c.senses.map(s=>[s.d,s.e,s.p,(s.syn||[]).join(' '),(s.ant||[]).join(' ')].join(' ')).join(' ')).toLowerCase();
+const PART=/\b(up|down|out|off|on|in|over|away|back|through|along|around|about|apart|aside|ahead|by|with|for|into|across|after|forward|to)$/i;
+const gpos=w=>{w=String(w||'').trim();return !/\s/.test(w)?'noun':PART.test(w)?'phrasal verb':'phrase'};
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const head=c=>'<div class="w">'+esc(c.w)+'</div><div class="ipa">'+esc(c.ipa||'')+(canSpeak?' <button class="ib sp" data-sp="'+esc(c.w)+'" aria-label="تلفظ">🔊</button>':'')+'</div><div class="mut">🔁 '+(c.n||0)+' بار مرور شده</div>';
+
+const npos=p=>{p=String(p||'').toLowerCase().trim();p={adj:'adjective',adv:'adverb',n:'noun',v:'verb'}[p]||p;return POS.some(x=>x[0]===p)?p:'other'};
+const fa=p=>(POS.find(x=>x[0]===p)||[0,'سایر'])[1];
+const group=ss=>{const m={};ss.forEach((s,i)=>{const p=npos(s.pos);(m[p]=m[p]||[]).push({s,i})});return POS.map(x=>x[0]).filter(p=>m[p]).map(p=>[p,m[p]])};
+const sm=a=>a.map(x=>x.s.p).filter(Boolean).join('، ');
+const tg=(l,k,a)=>a&&a.length?'<div class="sa '+k+'" dir="rtl"><b>'+l+':</b> <span dir="ltr">'+esc(a.join(', '))+'</span></div>':'';
+function gh(ss,chk){return group(ss).map(([p,a])=>'<div class="pg" data-p="'+p+'"><div class="ph"><b>'+fa(p)+'</b><span class="pos">'+p+'</span><span class="cnt">'+a.length+' معنی</span></div>'+(sm(a)?'<div class="ps">'+esc(sm(a))+'</div>':'')+a.map(({s,i},k)=>{
+ const b='<span class="nm">'+(k+1)+'</span><div style="flex:1"><div class="df">'+esc(s.d)+'</div>'+(s.e?'<div class="x">'+esc(s.e)+'</div>':'')+(s.p?'<div style="direction:rtl;text-align:right">'+esc(s.p)+'</div>':'')+tg('هم‌معنی','s1',s.syn)+tg('متضاد','s2',s.ant)+'</div>';
+ return chk?'<label class="sn" style="cursor:pointer"><input type="checkbox" data-i="'+i+'"'+(s.on?' checked':'')+'>'+b+'</label>':'<div class="sn">'+b+'</div>'}).join('')+'</div>').join('')}
+const summ=c=>c.senses.length+' معنی · '+group(c.senses).map(g=>fa(g[0])).join('، ');
+const ctext=c=>c.w+(c.ipa?' '+c.ipa:'')+'\n'+group(c.senses).map(([p,a])=>'['+p+']\n'+a.map(({s},k)=>(k+1)+'. '+s.d+(s.e?'\n   '+s.e:'')+(s.p?'\n   '+s.p:'')+(s.syn&&s.syn.length?'\n   ≈ '+s.syn.join(', '):'')+(s.ant&&s.ant.length?'\n   ≠ '+s.ant.join(', '):'')).join('\n')).join('\n');
+/* days */
+const dayStart=t=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
+const dfa=t=>{try{return new Date(t).toLocaleDateString('fa-IR',{weekday:'long',month:'long',day:'numeric'})}catch(e){return ''}};
+const O1=['','یکم','دوم','سوم','چهارم','پنجم','ششم','هفتم','هشتم','نهم','دهم','یازدهم','دوازدهم','سیزدهم','چهاردهم','پانزدهم','شانزدهم','هفدهم','هجدهم','نوزدهم'];
+const ord=n=>n<20?O1[n]:n===20?'بیستم':n<30?'بیست و '+O1[n-20]:n===30?'سی‌ام':'سی و '+O1[n-30];
+const dayName=n=>'روز '+(n>39?n:ord(n));
+function days(){
+ if(!cards.length)return [];
+ const base=Math.min(...cards.map(c=>dayStart(c.t))),m={};
+ cards.forEach(c=>{const n=Math.round((dayStart(c.t)-base)/864e5)+1;(m[n]=m[n]||[]).push(c)});
+ return Object.keys(m).map(Number).sort((a,b)=>a-b).map(n=>{const cs=m[n].sort((a,b)=>a.t-b.t);return{n,cs,ts:dayStart(cs[0].t)}});
+}
+function addSenses(w,ss,ipa){
+ let c=find(w),n=0;
+ if(!c){c={id:uid(),w:String(w).trim().replace(/\s+/g,' '),t:Date.now(),ipa:'',n:0,senses:[]};cards.push(c)}
+ if(ipa&&!c.ipa)c.ipa=String(ipa);
+ ss.forEach(s=>{if(s&&s.d&&!c.senses.some(x=>x.d===s.d)){c.senses.push({pos:npos(s.pos),d:String(s.d),e:s.e||'',p:s.p||'',syn:Array.isArray(s.syn)?s.syn.map(String):[],ant:Array.isArray(s.ant)?s.ant.map(String):[]});n++}});
+ if(!c.senses.length)cards=cards.filter(x=>x!==c);
+ save();return n}
+const tOf=c=>{let t=+c.t;if(!t){const id=String(c.id||''),m=id.match(/^c(\d{13})/);t=m?+m[1]:parseInt(id.slice(1,9),36)}return t>1.5e12&&t<Date.now()+864e5?t:Date.now()};
+let raw=null;try{raw=localStorage.getItem(KEY)}catch(e){}
+if(!raw&&window.__SEED)raw=JSON.stringify(window.__SEED);
+try{const o=JSON.parse(raw||'[]'),m=[];
+ o.forEach(c=>{if(!c||!c.w)return;
+  const n={id:c.id||uid(),w:c.w,t:tOf(c),ipa:c.ipa||'',n:c.n||0,senses:c.senses||[{pos:npos(c.pos),d:c.d||'',e:c.e||'',p:c.p||''}]};
+  const x=m.find(y=>y.w.toLowerCase()===n.w.toLowerCase());
+  if(x){n.senses.forEach(s=>{if(!x.senses.some(y=>y.d===s.d))x.senses.push(s)});x.t=Math.min(x.t,n.t);x.n=(x.n||0)+n.n;if(!x.ipa)x.ipa=n.ipa}else m.push(n)});
+ cards=m;save()}catch(e){}
+function toast(m,ms){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,ms||2200)}
+(async()=>{try{ai=await window.claude.use('sample')}catch(e){}try{dl=await window.claude.use('downloads')}catch(e){}if(tb==='add'&&!dr)render()})();
+/* routing: hash history so Back returns to the previous screen */
+const go=h=>{if(location.hash!=='#'+h)location.hash=h;else route()};
+function route(){
+ let h=location.hash.slice(1),m;
+ if(h==='sheet'){if(!$('#sh').hidden)return;location.replace('#study');h='study'}
+ close0();
+ if(m=h.match(/^day-(\d+)$/)){tb='study';if(day!==+m[1]){day=+m[1];idx=startAt;startAt=0;flip=false;cnt=false}}
+ else{tb=['add','list','spell'].includes(h)?h:'study';day=null}
+ render();
+}
+addEventListener('hashchange',route);
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.t));
+function render(){
+ document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===tb));
+ $('#act').innerHTML='';
+ ({study,add,list,spell})[tb]();
+}
+/* ---------- study ---------- */
+function study(){
+ const v=$('#view'),ds=days();
+ if(!cards.length){v.innerHTML='<div class="box">هنوز کارتی ندارید. از تب «افزودن» شروع کنید.</div>';return}
+ if(day==null){
+  v.innerHTML=ds.map(d=>{const o=openD.has(d.n);return '<div class="box day"><div class="dh" data-tg="'+d.n+'"><div><b>'+dayName(d.n)+'</b><div class="mut">'+esc(dfa(d.ts))+'</div></div><div class="mut">'+d.cs.length+' لغت '+(o?'▴':'▾')+'</div></div>'+(o?'<div class="dw"><button class="btn p" data-s="'+d.n+':0" style="width:100%">▶ شروع مرور از اول</button>'+d.cs.map((c,i)=>'<button class="wi" data-s="'+d.n+':'+i+'"><b>'+esc(c.w)+'</b><span class="mut">'+esc(summ(c))+' · 🔁 '+(c.n||0)+'</span></button>').join('')+'</div>':'')+'</div>'}).join('');
+  v.querySelectorAll('[data-tg]').forEach(e=>e.onclick=()=>{const n=+e.dataset.tg;openD.has(n)?openD.delete(n):openD.add(n);study()});
+  v.querySelectorAll('[data-s]').forEach(e=>e.onclick=()=>{const p=e.dataset.s.split(':').map(Number);startAt=p[1];go('day-'+p[0])});return}
+ const d=ds.find(x=>x.n===day);
+ if(!d){location.replace('#study');return}
+ if(idx>=d.cs.length)idx=0;
+ const c=d.cs[idx],tgl=()=>{flip=!flip;if(flip&&!cnt){c.n=(c.n||0)+1;cnt=true;save()}study();scrollTo(0,0)};
+ v.innerHTML='<div class="row" style="margin:0 0 8px;align-items:center"><button class="ib" id="bk" style="flex:none" aria-label="بازگشت">→</button><div style="flex:1;text-align:center"><b>'+dayName(day)+'</b> <button class="btn" id="jp" style="min-height:40px;padding:2px 12px;margin-right:8px">'+(idx+1)+' / '+d.cs.length+' ▾</button></div></div><div class="box fc'+(flip?' top':'')+'" id="fc">'+head(c)+
+ (flip?gh(c.senses):'<div class="chips">'+group(c.senses).map(g=>'<span class="chip" data-p="'+g[0]+'">'+fa(g[0])+' · '+g[1].length+'</span>').join('')+'</div><div class="mut" style="margin-top:8px">'+c.senses.length+' معنی</div><div class="mut" style="margin-top:16px">برای دیدن پاسخ بزنید</div>')+'</div>';
+ $('#act').innerHTML='<button class="btn" id="pv"'+(idx?'':' disabled')+'>→ قبلی</button><button class="btn p" id="tg">'+(flip?'پنهان کردن':'نمایش پاسخ')+'</button><button class="btn" id="nx">بعدی ←</button>';
+ $('#bk').onclick=()=>go('study');
+ $('#jp').onclick=()=>{sheet('<h3 style="margin-top:0">'+dayName(day)+'</h3>'+d.cs.map((c,i)=>'<button class="wi" data-j="'+i+'"><b>'+esc(c.w)+'</b><span class="mut">'+(i===idx?'● ':'')+'🔁 '+(c.n||0)+'</span></button>').join('')+'<div class="row"><button class="btn" id="cl">بستن</button></div>');$('#cl').onclick=close;document.querySelectorAll('[data-j]').forEach(b=>b.onclick=()=>{idx=+b.dataset.j;flip=false;cnt=false;close();study();scrollTo(0,0)})};
+ $('#fc').querySelectorAll('[data-sp]').forEach(b=>b.onclick=e=>{e.stopPropagation();speak(b.dataset.sp)});
+ $('#fc').onclick=()=>{if(!flip)tgl()};$('#tg').onclick=tgl;
+ $('#pv').onclick=()=>{idx--;flip=false;cnt=false;study();scrollTo(0,0)};
+ $('#nx').onclick=()=>{if(idx<d.cs.length-1){idx++;flip=false;cnt=false;study();scrollTo(0,0)}else{toast('پایان '+dayName(day)+' 🎉');go('study')}};
+}
+/* ---------- add ---------- */
+function add(){
+ $('#view').innerHTML='<div class="box"><label>لغت</label><input id="w" class="en" placeholder="e.g. light" autocomplete="off" autocapitalize="off" enterkeyhint="search"><div id="dup"></div>'+
+ '<div class="row">'+(ai?'<button class="btn p" id="sg">✨ همهٔ معانی را بیاور</button>':'')+'<a class="btn" id="lk" target="_blank" rel="noopener noreferrer">Longman ↗</a></div>'+
+ '<div class="hint">'+(ai?'همهٔ معانی، کارکردها، هم‌معنی‌ها و متضادها در «یک» کارت جمع می‌شود و با تیک می‌توانید معنی‌ها را کم کنید. معانی را هوش مصنوعی به سبک دیکشنری‌های آموزشی می‌نویسد و متن لانگمن نیست؛ برای تطبیق، دکمهٔ Longman را بزنید.':'پیشنهاد خودکار در این محیط فعال نیست؛ لغت را در Longman ببینید و کارت را دستی بسازید.')+'</div></div>'+
+ '<div id="res"></div><button class="btn" id="man" style="width:100%">✍️ افزودن دستی</button>';
+ const w=$('#w');w.value=wv;
+ const lk=()=>{wv=w.value;$('#lk').href='https://www.ldoceonline.com/search/?q='+encodeURIComponent(wv.trim().replace(/\s+/g,' '))};
+ const dp=()=>{const ex=wv.trim()&&find(wv);$('#dup').innerHTML=ex?'<div class="warn">⚠️ این لغت قبلاً ذخیره شده است ('+esc(summ(ex))+')<button class="btn" id="od" style="width:100%;min-height:46px;margin-top:8px">باز کردن کارت</button></div>':'';if(ex)$('#od').onclick=()=>edit(ex.id)};
+ w.oninput=()=>{lk();dp()};lk();dp();
+ $('#man').onclick=()=>edit(null,wv.trim());
+ if(ai){$('#sg').onclick=suggest;w.onkeydown=e=>{if(e.key==='Enter')suggest()}}
+ res();
+}
+const arr=a=>Array.isArray(a)?a.slice(0,5).map(String):[];
+async function suggest(){
+ const w=$('#w').value.trim().replace(/\s+/g,' ');if(!w)return toast('لغت را بنویسید');
+ const b=$('#sg');b.disabled=true;b.textContent='در حال دریافت…';
+ const q='For the English word, phrasal verb, idiom or phrase "'+w+'", list ALL its main meanings (up to 12) like a learner dictionary. If the input has several words (a phrasal verb, idiom or phrase), give the meanings of that whole expression itself, not of its first word; all its meanings may share one pos. Return ONLY a JSON object with keys: ipa (IPA pronunciation of the whole input, e.g. /ˈlaɪt/) and senses (array). Each element of senses has: pos (one of: noun, verb, adjective, adverb, phrasal verb, phrase, idiom, preposition, conjunction, pronoun, determiner, exclamation), d (simple English definition in your own words), e (one natural example sentence), p (short Persian meaning), syn (array of up to 4 English synonyms for this meaning), ant (array of up to 3 antonyms, [] if none). No markdown.';
+ try{const r=await ai(q,{cache:false});
+  const j=pj(r.text);const a=Array.isArray(j)?j:(j.senses||[]);sipa=Array.isArray(j)?'':String(j.ipa||'');
+  sw=w;sugg=a.slice(0,12).map(s=>({pos:npos(s.pos),d:s.d||'',e:s.e||'',p:s.p||'',syn:arr(s.syn),ant:arr(s.ant),on:true})).filter(s=>s.d);
+  if(!sugg.length)toast('معنایی پیدا نشد')}
+ catch(err){sugg=[];toast(err&&err.code==='not_granted'?'اجازه داده نشد':'دریافت ناموفق بود، دوباره بزنید')}
+ b.disabled=false;b.textContent='✨ همهٔ معانی را بیاور';res();
+}
+function res(){
+ const r=$('#res');if(!r)return;
+ if(!sugg.length){r.innerHTML='';return}
+ r.innerHTML='<div class="box"><div class="w" style="font-size:1.6rem;text-align:center">'+esc(sw)+'</div>'+(sipa?'<div class="ipa" style="text-align:center">'+esc(sipa)+'</div>':'')+(find(sw)?'<div class="warn">⚠️ این لغت قبلاً ذخیره شده است؛ فقط معانی جدید به همان کارت اضافه می‌شود.</div>':'')+'<div class="mut" style="text-align:center">'+summ({senses:sugg})+' · یک کارت</div>'+gh(sugg,1)+'<div class="row"><button class="btn p" id="addsel">افزودن به یک کارت</button></div></div>';
+ r.querySelectorAll('input').forEach(c=>c.onchange=()=>sugg[c.dataset.i].on=c.checked);
+ $('#addsel').onclick=()=>{
+  const sel=sugg.filter(s=>s.on);if(!sel.length)return toast('موردی انتخاب نشده');
+  const ex=find(sw),n=addSenses(sw,sel,sipa);toast(ex?(n?'این لغت قبلاً ذخیره شده بود؛ '+n+' معنی جدید به همان کارت اضافه شد':'این لغت و این معانی قبلاً ذخیره شده‌اند'):n+' معنی به کارت «'+sw+'» افزوده شد ✓',3500);sugg=[];sipa='';wv='';add();
+ };
+}
+/* ---------- list ---------- */
+function list(){
+ const v=$('#view');
+ let h='<div class="row" style="margin:0 0 12px"><button class="btn" id="exp">📤 اشتراک‌گذاری</button><button class="btn" id="imp">📥 وارد کردن</button></div>'+'<input id="lq" class="en" placeholder="🔍 جستجو در لغت‌ها…" style="margin-bottom:10px">';
+ h+='<div class="box" style="padding:6px 14px">'+(cards.length?cards.map(c=>'<div class="it" data-q="'+esc(qtext(c))+'"><div class="t" data-e="'+c.id+'"><b>'+esc(c.w)+'</b><small style="direction:rtl">'+esc(summ(c)+' · مرور: '+(c.n||0))+'</small></div><button class="ib" data-e="'+c.id+'" aria-label="ویرایش">✎</button><button class="ib" data-s="'+c.id+'" aria-label="اشتراک">↗</button></div>').join(''):'<div style="padding:12px 0">کارتی نیست.</div>')+'</div>';
+ v.innerHTML=h;
+ $('#lq').oninput=e=>{const q=e.target.value.trim().toLowerCase();v.querySelectorAll('.it').forEach(x=>x.hidden=!!q&&!x.dataset.q.includes(q))};
+ v.querySelectorAll('[data-e]').forEach(e=>e.onclick=()=>edit(e.dataset.e));
+ v.querySelectorAll('[data-s]').forEach(e=>e.onclick=()=>{const c=cards.find(x=>x.id===e.dataset.s);out(ctext(c),c.w)});
+ $('#exp').onclick=()=>{
+  if(!cards.length)return toast('کارتی برای اشتراک نیست');
+  sheet('<h3 style="margin-top:0">اشتراک‌گذاری همهٔ کارت‌ها</h3><div class="row"><button class="btn p" id="s1">ارسال / کپی</button>'+(dl?'<button class="btn" id="s2">ذخیرهٔ فایل</button>':'')+'</div><div class="row"><button class="btn" id="cl">بستن</button></div>');
+  const j=JSON.stringify(cards.map(c=>({w:c.w,ipa:c.ipa||'',senses:c.senses.map(({pos,d,e,p,syn,ant})=>({pos,d,e,p,syn:syn||[],ant:ant||[]}))})));
+  $('#s1').onclick=()=>out(j,'flashcards');
+  if(dl)$('#s2').onclick=async()=>{try{await dl.save({filename:'flashcards.json',data:j});close()}catch(e){toast('ذخیره نشد')}};
+  $('#cl').onclick=close;
+ };
+ $('#imp').onclick=()=>{
+  sheet('<h3 style="margin-top:0">وارد کردن کارت‌ها</h3><textarea id="io" class="en" placeholder="متن JSON را اینجا بچسبانید"></textarea><div class="row"><button class="btn" id="cl">انصراف</button><button class="btn p" id="go">وارد کن</button></div><div id="im" class="hint"></div>');
+  $('#cl').onclick=close;
+  $('#go').onclick=()=>{
+   try{const a=JSON.parse($('#io').value);if(!Array.isArray(a))throw 0;let n=0;
+    a.forEach(c=>{if(c&&c.w)n+=addSenses(String(c.w),Array.isArray(c.senses)?c.senses:[c],c.ipa)});
+    close();toast(n+' معنی وارد شد');render()}
+   catch(e){$('#im').textContent='JSON معتبر نیست.'}
+  };
+ };
+}
+async function out(text,title){
+ const done=m=>{if(!$('#sh').hidden)close();if(m)toast(m)};
+ try{if(navigator.share){await navigator.share({title,text});done();return}}catch(e){if(e&&e.name==='AbortError')return}
+ try{await navigator.clipboard.writeText(text);done('کپی شد ✓');return}catch(e){}
+ sheet('<h3 style="margin-top:0">متن را کپی کنید</h3><textarea id="io" class="en" readonly></textarea><div class="row"><button class="btn" id="cl">بستن</button></div>');
+ $('#io').value=text;$('#io').select();$('#cl').onclick=close;
+}
+/* ---------- edit sheet ---------- */
+const blank=w=>({pos:gpos(w),d:'',e:'',p:'',syn:[],ant:[]});
+function edit(id,w){
+ const c=id?cards.find(x=>x.id===id):null;
+ dr={id,w:c?c.w:(w||''),ipa:c?c.ipa||'':'',ss:c?c.senses.map(s=>Object.assign({syn:[],ant:[]},s)):[blank(w)]};
+ draw();
+}
+function sync(){dr.w=$('#fw').value;dr.ipa=$('#fi').value;['pos','d','e','p','syn','ant'].forEach(k=>document.querySelectorAll('[data-k="'+k+'"]').forEach((el,i)=>dr.ss[i][k]=(k==='syn'||k==='ant')?el.value.split(/[,،;]+/).map(x=>x.trim()).filter(Boolean):el.value))}
+function draw(){
+ const o=document.querySelector('.sheet'),top=o?o.scrollTop:0;
+ sheet('<h3 style="margin-top:0">'+(dr.id?'ویرایش کارت':'کارت جدید')+'</h3><label>لغت</label><input id="fw" class="en" autocapitalize="off"><label>تلفظ (IPA)</label><input id="fi" class="en" placeholder="/ˈlaɪt/" autocapitalize="off">'+
+ dr.ss.map((s,i)=>'<div class="sr"><div class="row" style="margin:0 0 6px"><select data-k="pos" class="en">'+POS.map(x=>'<option value="'+x[0]+'"'+(npos(s.pos)===x[0]?' selected':'')+'>'+x[1]+' · '+x[0]+'</option>').join('')+'</select><button class="ib" style="flex:none" data-rm="'+i+'" aria-label="حذف معنی">🗑</button></div>'+
+ '<textarea data-k="d" class="en" placeholder="Definition">'+esc(s.d)+'</textarea><input data-k="e" class="en" style="margin-top:6px" placeholder="Example" value="'+esc(s.e)+'"><input data-k="p" style="margin-top:6px" placeholder="معنی فارسی" value="'+esc(s.p)+'">'+
+ '<input data-k="syn" class="en" style="margin-top:6px" placeholder="Synonyms: happy, glad" value="'+esc((s.syn||[]).join(', '))+'"><input data-k="ant" class="en" style="margin-top:6px" placeholder="Antonyms: sad, unhappy" value="'+esc((s.ant||[]).join(', '))+'"></div>').join('')+
+ '<button class="btn" id="ns" style="width:100%;margin-top:10px">＋ معنی یا کارکرد جدید</button>'+(ai?'<button class="btn" id="fs" style="width:100%;margin-top:8px">✨ تلفظ، هم‌معنی و متضاد</button>':'')+'<div class="row"><button class="btn" id="cl">انصراف</button><button class="btn p" id="ok">ذخیره</button></div>'+(dr.id?'<div class="row"><button class="btn d" id="rm">حذف کارت</button></div>':'')+'<div id="em" class="hint"></div>');
+ $('#fw').value=dr.w;$('#fi').value=dr.ipa||'';$('.sheet').scrollTop=top;
+ $('#cl').onclick=close;
+ $('#ns').onclick=()=>{sync();dr.ss.push(blank(dr.w));draw()};
+ document.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{sync();dr.ss.splice(+b.dataset.rm,1);if(!dr.ss.length)dr.ss.push(blank());draw()});
+ if(ai)$('#fs').onclick=async()=>{
+  sync();const L=dr.ss.map((s,i)=>(i+1)+'. ('+npos(s.pos)+') '+s.d).filter(x=>x.length>8);
+  if(!L.length){$('#em').textContent='اول تعریف‌ها را بنویسید.';return}
+  const b=$('#fs');b.disabled=true;b.textContent='در حال دریافت…';
+  try{const r=await ai('For the English word "'+dr.w+'" with these meanings:\n'+dr.ss.map((s,i)=>i+'. ('+npos(s.pos)+') '+s.d).join('\n')+'\nReturn ONLY a JSON object with keys ipa (IPA pronunciation of the word, e.g. /ˈlaɪt/) and meanings (array with one object per meaning in the same order, keys syn (up to 4 English synonyms) and ant (up to 3 antonyms, [] if none)). No markdown.',{cache:false});
+   const j=pj(r.text);const a=Array.isArray(j)?j:(j.meanings||[]);if(j.ipa&&!dr.ipa)dr.ipa=String(j.ipa);
+   dr.ss.forEach((s,i)=>{if(a[i]){s.syn=arr(a[i].syn);s.ant=arr(a[i].ant)}});draw()}
+  catch(e){b.disabled=false;b.textContent='✨ تلفظ، هم‌معنی و متضاد';$('#em').textContent='دریافت ناموفق بود.'}
+ };
+ $('#ok').onclick=()=>{
+  sync();const w2=dr.w.trim(),ss=dr.ss.filter(s=>s.d.trim()).map(s=>({pos:npos(s.pos),d:s.d.trim(),e:s.e.trim(),p:s.p.trim(),syn:s.syn||[],ant:s.ant||[]}));
+  if(!w2||!ss.length){$('#em').textContent='لغت و حداقل یک تعریف لازم است.';return}
+  const ex=find(w2,dr.id);if(ex){$('#em').innerHTML='<span style="color:var(--bad)">⚠️ این لغت قبلاً ذخیره شده است.</span><button class="btn" id="ox" style="width:100%;margin-top:8px;min-height:48px">باز کردن کارت موجود</button>';$('#ox').onclick=()=>edit(ex.id);return}
+  if(dr.id){const c=cards.find(x=>x.id===dr.id);c.w=w2;c.ipa=(dr.ipa||'').trim();c.senses=ss;save()}else{addSenses(w2,ss,(dr.ipa||'').trim());wv=''}
+  close();toast('ذخیره شد ✓');render();
+ };
+ if(dr.id)$('#rm').onclick=()=>{if(confirm('این کارت حذف شود؟')){cards=cards.filter(x=>x.id!==dr.id);save();close();render()}};
+}
+function sheet(h){const s=$('#sh');s.innerHTML='<div class="sheet">'+h+'</div>';s.hidden=false;s.onclick=e=>{if(e.target===s)close()};if(location.hash!=='#sheet')location.hash='sheet'}
+function close0(){const s=$('#sh');s.hidden=true;s.innerHTML=''}
+function close(){if(location.hash==='#sheet')history.back();else close0()}
+/* ---------- spelling ---------- */
+const sc=()=>sp&&cards.find(x=>x.id===sp.q[sp.i]);
+function spell(){
+ const v=$('#view'),A=$('#act');
+ if(!cards.length){v.innerHTML='<div class="box">برای تمرین املا اول چند لغت اضافه کنید.</div>';return}
+ if(!sp||sp.i>=sp.q.length){
+  v.innerHTML='<div class="box" style="text-align:center"><h3 style="margin:0 0 6px">'+(sp&&sp.tot?'نتیجه: '+sp.ok+' از '+sp.tot+' درست':'تمرین املا')+'</h3><div class="mut">تلفظ لغت پخش می‌شود و معنی فارسی نمایش داده می‌شود؛ املای آن را بنویسید. این بخش به اینترنت نیاز ندارد.'+(canSpeak?'':' (این دستگاه تلفظ صوتی ندارد.)')+'</div></div>';
+  A.innerHTML='<button class="btn p" id="st">شروع تمرین · '+cards.length+' لغت</button>';
+  $('#st').onclick=()=>{sp={q:shuf(cards.map(c=>c.id)),i:0,ok:0,tot:0,r:null,h:0};spell();const c=sc();if(c)speak(c.w)};
+  return}
+ const c=sc();if(!c){sp.i++;spell();return}
+ const r=sp.r,hint=c.senses.map(s=>s.p).filter(Boolean).slice(0,3).join('، ')||(c.senses[0]?c.senses[0].d.split(c.w).join('____'):'');
+ v.innerHTML='<div class="mut" style="margin-bottom:6px">'+(sp.i+1)+' / '+sp.q.length+'</div><div class="box" style="text-align:center">'+(canSpeak?'<button class="ib big" id="pl" aria-label="تلفظ">🔊</button>':'')+'<div dir="auto" style="margin:12px 0;font-size:1.15rem">'+esc(hint)+'</div><div class="mut">'+c.w.length+' حرف'+(sp.h?' · شروع با «'+esc(c.w[0])+'»':'')+'</div><input id="ans" class="en" style="margin-top:12px;text-align:center;font-size:1.3rem" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"'+(r?' disabled value="'+esc(r.a)+'"':'')+'>'+
+ (r?'<div class="'+(r.ok?'rok':'rno')+'" style="margin-top:12px;font-weight:600">'+(r.ok?'✓ درست':'✗ نادرست')+'</div><div class="w" style="font-size:1.6rem">'+esc(c.w)+'</div>'+(c.ipa?'<div class="ipa">'+esc(c.ipa)+'</div>':''):'')+'</div>';
+ if(canSpeak)$('#pl').onclick=()=>speak(c.w);
+ if(r){
+  A.innerHTML='<button class="btn p" id="nx2">'+(sp.i<sp.q.length-1?'بعدی ←':'پایان و نتیجه')+'</button>';
+  $('#nx2').onclick=()=>{sp.i++;sp.r=null;sp.h=0;spell();const n=sc();if(sp.i<sp.q.length&&n)speak(n.w);scrollTo(0,0)};
+ }else{
+  A.innerHTML='<button class="btn" id="hn">راهنما</button><button class="btn p" id="ck">بررسی</button>';
+  const ck=()=>{const a=$('#ans').value.trim().toLowerCase().replace(/\s+/g,' ');if(!a)return;const ok=a===c.w.trim().toLowerCase().replace(/\s+/g,' ');sp.tot++;if(ok)sp.ok++;sp.r={ok,a};spell()};
+  $('#ck').onclick=ck;$('#ans').onkeydown=e=>{if(e.key==='Enter')ck()};
+  $('#hn').onclick=()=>{const t=$('#ans').value;sp.h=1;spell();$('#ans').value=t;$('#ans').focus()};
+  $('#ans').focus();
+ }
+}
+const APP_URL=location.href.split('#')[0];
+async function offline(){
+ let d=dl;if(!d){try{d=await window.claude.use('downloads')}catch(e){}}
+ if(!d)return toast('ذخیرهٔ فایل در این نما فعال نیست؛ صفحه را در خود Claude باز کنید',4500);
+ try{let h=SRC.replace(new RegExp('<meta[^>]*Content-Security-Policy[^>]*>','ig'),'').replace(new RegExp('<script[^>]*\\ssrc=[^>]*><'+'/script>','ig'),'').replace(new RegExp('<script id="seed">[\\s\\S]*?<'+'/script>','g'),'');
+  const i=h.lastIndexOf('<'+'script>');if(i<0)throw 0;
+  h=h.slice(0,i)+'<script id="seed">window.__SEED='+JSON.stringify(cards).replace(/</g,'\\u003c')+';<'+'/script>'+h.slice(i);
+  await d.save({filename:'flashcards-offline.html',data:h});if(!$('#sh').hidden)close();toast('نسخهٔ آفلاین ذخیره شد؛ آن را از بخش فایل‌های گوشی باز کنید',4000)}
+ catch(e){if(!e||e.code!=='declined')toast('ذخیره نشد')}
+}
+function menu(){
+ sheet('<h3 style="margin-top:0">منوی اپ</h3><button class="btn" id="m2" style="width:100%;margin-top:8px">🔗 اشتراک‌گذاری اپ</button><div class="hint">برای نصب روی گوشی، از منوی مرورگر «Install app» یا «Add to Home Screen» را بزنید. این نسخه بعد از اولین بار بدون اینترنت هم کار می‌کند.</div><div class="row"><button class="btn" id="cl">بستن</button></div>');
+ $('#m2').onclick=()=>out(APP_URL,'فلش‌کارت لغات انگلیسی');$('#cl').onclick=close;
+}
+$('#mn').onclick=menu;
+if(!location.hash)location.replace('#study');
+route();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
